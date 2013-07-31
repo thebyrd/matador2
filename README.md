@@ -90,10 +90,17 @@ module.exports = {
 }
 
 ```
+
 The one parameter for every handler is a Shepherd builder. However, Matador2 adds two methods to the api:
 1. `respond(template, nodeName)` will render `template` using the result of `nodeName`.
 2. `redirect(path)` will redirct to `path` or if `path` is the name of a node built in the builder it will redirect to its result.
 
+You'll also notice that there are a couple of "global" graph nodes that can be used handlers:
+1. `req` is the Request that user is handling. It is identical to the express request variable
+  - some common attributes of `req` include `req.body` (the request body), `req.params` (the parameter in the route path), `req.query` (the query parameter), & `req.session` (the current session).
+2. `app` is the matador2 application and holds data about middlewear and external dependencies.
+  - An example of an external dependency is `app.db` which is an instance of [dynamite](https://github.com/Obvious/dynamite)
+  - Additionally, there is also `app.cdn` which is an instance of [knox](https://github.com/learnboost/knox)
 
 
 
