@@ -102,7 +102,36 @@ You'll also notice that there are a couple of "global" graph nodes that can be u
   - An example of an external dependency is `app.db` which is an instance of [dynamite](https://github.com/Obvious/dynamite)
   - Additionally, there is also `app.cdn` which is an instance of [knox](https://github.com/learnboost/knox)
 
+## Views
 
 
+
+### Templates
+Uses [SoyNode](https://github.com/Obvious/soynode) to render Closure Templates. The  
+
+```
+<!-- /views/templates/layout.soy -->
+
+{namespace views.layout}
+
+/**
+ * Renders the index page.
+ * @param title Title of the page.
+ */
+{template .index autoescape="contextual"}
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta http-equiv='Content-type' content='text/html; charset=utf-8'>
+      <title>{$title}</title>
+      <link rel='stylesheet' href='/css/main.css' type='text/css'>
+    </head>
+    <body>
+      {$ij.bodyHtml |noAutoescape}
+    </body>
+  </html>
+{/template}
+
+```
 
 
