@@ -103,35 +103,8 @@ You'll also notice that there are a couple of "global" graph nodes that can be u
   - Additionally, there is also `app.cdn` which is an instance of [knox](https://github.com/learnboost/knox)
 
 ## Views
-
-
+Views is mounted as a public directory and includs stylesheets, javascript, & images. It's just the parent directory for the front end.
 
 ### Templates
-Uses [SoyNode](https://github.com/Obvious/soynode) to render Closure Templates. The  
-
-```
-<!-- /views/templates/layout.soy -->
-
-{namespace views.layout}
-
-/**
- * Renders the index page.
- * @param title Title of the page.
- */
-{template .index autoescape="contextual"}
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <meta http-equiv='Content-type' content='text/html; charset=utf-8'>
-      <title>{$title}</title>
-      <link rel='stylesheet' href='/css/main.css' type='text/css'>
-    </head>
-    <body>
-      {$ij.bodyHtml |noAutoescape}
-    </body>
-  </html>
-{/template}
-
-```
-
+Matador2 uses [SoyNode](https://github.com/Obvious/soynode) to render Closure Templates. The default layout is `tempaltes.layout.index`, you can change it by having the node `.respond` uses return a layout attribute.
 
