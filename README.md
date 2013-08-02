@@ -108,3 +108,5 @@ Views is mounted as a public directory and includs stylesheets, javascript, & im
 ### Templates
 Matador2 uses [SoyNode](https://github.com/Obvious/soynode) to render Closure Templates. The default layout is `tempaltes.layout.index`, you can change it by having the node `.respond` uses return a layout attribute.
 
+## Examples
+- [Trashwang](github.com/davidbyrd11/trashwang)
